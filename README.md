@@ -1,2 +1,2 @@
 # NextJS api-fetch-data
-Example of static data
+Example of fetching static data from repository directly with validator of json file
