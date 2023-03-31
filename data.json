@@ -1,3 +1,46 @@
 {
-  "data": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  "data": {
+    "action": "courses",
+    "curtype": "1",
+    "branch": "ALL",
+    "Rates": {
+      "rate": [
+        {
+          "cur": "USD",
+          "value1": "386.0000",
+          "delta1": "0.0000",
+          "value2": "392.0000",
+          "delta2": "0.0000"
+        },
+        {
+          "cur": "EUR",
+          "value1": "416.0000",
+          "delta1": "0.0000",
+          "value2": "432.0000",
+          "delta2": "0.0000"
+        },
+        {
+          "cur": "RUB",
+          "value1": "4.8500",
+          "delta1": "0.0000",
+          "value2": "5.2500",
+          "delta2": "0.0000"
+        },
+        {
+          "cur": "GBP",
+          "value1": "470.0000",
+          "delta1": "1.0000",
+          "value2": "496.0000",
+          "delta2": "1.0000"
+        },
+        {
+          "cur": "CHF",
+          "value1": "412.0000",
+          "delta1": "0.0000",
+          "value2": "445.0000",
+          "delta2": "0.0000"
+        }
+      ]
+    }
+  }
 }
