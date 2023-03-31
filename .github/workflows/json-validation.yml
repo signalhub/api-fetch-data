@@ -22,7 +22,7 @@ jobs:
         run: |
           set -e
           npm install -g ajv-cli
-          ajv compile -s schema.json -d data.json
+          ajv compile -s schema.json data.json
 
 
 
