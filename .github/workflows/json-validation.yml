@@ -10,6 +10,11 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Install jsonlint
+      run: |
+        sudo apt-get install -y nodejs
+        sudo npm install -g jsonlint
     - name: Validate JSON
       run: |
         curl -s https://api.github.com/repos/signalhub/api-fetch-data/contents/data.json | jsonlint
+
