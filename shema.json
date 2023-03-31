@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "action": { "type": "string" },
+        "curtype": { "type": "string" },
+        "branch": { "type": "string" },
+        "Rates": {
+          "type": "object",
+          "properties": {
+            "rate": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "cur": { "type": "string" },
+                  "value1": { "type": "string" },
+                  "delta1": { "type": "string" },
+                  "value2": { "type": "string" },
+                  "delta2": { "type": "string" }
+                },
+                "required": [
+                  "cur",
+                  "value1",
+                  "delta1",
+                  "value2",
+                  "delta2"
+                ]
+              }
+            }
+          },
+          "required": ["rate"]
+        }
+      },
+      "required": ["action", "curtype", "branch", "Rates"]
+    }
+  },
+  "required": ["data"]
+}
