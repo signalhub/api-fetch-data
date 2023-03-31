@@ -1,20 +1,23 @@
-name: JSON Validation
+name: JSON Lint
+
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+
 jobs:
-  json-validation:
+  lint:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Install jsonlint
-      run: |
-        sudo apt-get install -y nodejs
-        sudo npm install -g jsonlint
-    - name: Validate JSON
-      run: |
-        curl -s https://api.github.com/repos/signalhub/api-fetch-data/contents/data.json | jsonlint
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install jsonlint-cli
+        run: npm install -g jsonlint-cli
+
+      - name: Validate JSON file
+        run: jsonlint -q data.json
+
 
