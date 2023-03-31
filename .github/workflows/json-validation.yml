@@ -7,17 +7,22 @@ on:
     branches: [ main ]
 
 jobs:
-  lint:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+      - name: Validate JSON
+        run: |
+          set -e
+          npm install -g ajv-cli
+          ajv compile -s schema.json -d data.json
 
-      - name: Install jsonlint-cli
-        run: npm install -g jsonlint-cli
-
-      - name: Validate JSON file
-        run: jsonlint -q data.json
 
 
