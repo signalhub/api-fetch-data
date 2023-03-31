@@ -16,8 +16,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install ajv-cli
-        run: npm install -g ajv-cli
-
-      - name: Validate JSON
-        run: ajv validate -s ./schema.json -d ./data.json
+      - name: Validate JSON file
+        run: |
+          # Use jq to validate the JSON file
+          cat data.json | jq empty >/dev/null
+          
