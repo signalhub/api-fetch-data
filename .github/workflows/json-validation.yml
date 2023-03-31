@@ -1,28 +1,23 @@
-name: JSON Lint
+name: JSON Validation
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  build:
+  validate-json:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          submodules: recursive
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.x
-      - name: Validate JSON
-        run: |
-          set -e
-          npm install -g ajv-cli
-          ajv compile -s schema.json data.json
+    - name: Checkout code
+      uses: actions/checkout@v2
 
+    - name: Install Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16.x'
 
+    - name: Install ajv-cli
+      run: npm install -g ajv-cli
 
+    - name: Validate JSON
+      run: ajv compile -s schema.json -d data.json
