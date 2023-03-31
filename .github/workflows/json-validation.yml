@@ -1,0 +1,15 @@
+name: JSON Validation
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  json-validation:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Validate JSON
+      run: |
+        curl -s https://raw.githubusercontent.com/signalhub/api-fetch-data/main/data.json | jsonlint
